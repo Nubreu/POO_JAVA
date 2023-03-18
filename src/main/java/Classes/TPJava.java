@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.tp2;
+package Classes;
 
 /**
  *
  * @author pedro
  */
-public class TP2 {
+public class TPJava {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");

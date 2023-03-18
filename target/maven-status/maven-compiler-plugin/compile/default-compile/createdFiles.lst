@@ -1,4 +1,7 @@
-com/mycompany/tp2/Interface/TelaLogin$1.class
-com/mycompany/tp2/Interface/TelaLogin.class
-com/mycompany/tp2/TP2.class
-com/mycompany/tp2/Interface/TelaLogin$2.class
+Interface/TelaLogin$1.class
+Interface/TelaLogin.class
+Classes/Aluno.class
+Classes/Curso.class
+Interface/TelaLogin$2.class
+Classes/TPJava.class
+Classes/Sala.class
