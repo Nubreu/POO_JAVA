@@ -49,4 +49,8 @@ public class Pessoa {
     //implementar talvez
     public void imprimirDados(){};
     
+    public String toString(){
+        return "nome: " + nome + ", contato: " + contato + ", cpf: " + cpf;
+    }
+    
 }
