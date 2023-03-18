@@ -1,13 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Interface;
 
-/**
- *
- * @author pedro
- */
+import javax.swing.ButtonGroup;
+
 public class TelaPrincipal extends javax.swing.JFrame {
 
     /**
@@ -15,6 +10,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
+        ButtonGroup grupoBotoes = new ButtonGroup();
+        grupoBotoes.add(gestorRadioButton);
+        grupoBotoes.add(professorRadioButton);
+        grupoBotoes.add(alunoRadioButton);
     }
 
     /**
@@ -28,33 +27,43 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        gestorRadioButton = new javax.swing.JRadioButton();
+        professorRadioButton = new javax.swing.JRadioButton();
+        alunoRadioButton = new javax.swing.JRadioButton();
+        EntrarTP = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Entrar como:");
 
-        jRadioButton1.setText("Gestor");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        gestorRadioButton.setText("Gestor");
+        gestorRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                gestorRadioButtonActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Professor");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        professorRadioButton.setText("Professor");
+        professorRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                professorRadioButtonActionPerformed(evt);
             }
         });
 
-        jRadioButton3.setText("Aluno");
+        alunoRadioButton.setText("Aluno");
+        alunoRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alunoRadioButtonActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Entrar");
+        EntrarTP.setText("Entrar");
+        EntrarTP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EntrarTPActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -64,16 +73,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(EntrarTP))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
-                                .addComponent(jRadioButton1)
+                                .addComponent(gestorRadioButton)
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton2)
+                                .addComponent(professorRadioButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton3))
+                                .addComponent(alunoRadioButton))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel1)))
@@ -87,11 +96,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(gestorRadioButton)
+                    .addComponent(professorRadioButton)
+                    .addComponent(alunoRadioButton))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(EntrarTP)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -124,13 +133,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void gestorRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestorRadioButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_gestorRadioButtonActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void professorRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_professorRadioButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_professorRadioButtonActionPerformed
+
+    private void alunoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alunoRadioButtonActionPerformed
+
+    private void EntrarTPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarTPActionPerformed
+        if (gestorRadioButton.isSelected()) {
+            new TelaLogin().setVisible(true);
+            dispose();
+        } else if (professorRadioButton.isSelected()) {
+            new TelaProfessor().setVisible(true);
+            dispose();
+        } else if (alunoRadioButton.isSelected()) {
+             new TelaAluno().setVisible(true);
+            dispose();           
+        } else {
+            
+        }    
+    }//GEN-LAST:event_EntrarTPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,12 +196,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton EntrarTP;
+    private javax.swing.JRadioButton alunoRadioButton;
+    private javax.swing.JRadioButton gestorRadioButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton professorRadioButton;
     // End of variables declaration//GEN-END:variables
 }

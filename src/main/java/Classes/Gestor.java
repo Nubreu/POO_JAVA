@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 
 public class Gestor extends Pessoa{
+    Scanner scanner = new Scanner(System.in);
     private String login;
     private String senha;
     boolean autorizado;
@@ -25,7 +26,6 @@ public boolean condicao() {
 }
 
 public void validacao() {
-    Scanner scanner = new Scanner(System.in);
     System.out.println("\t[---- LOGIN ----]\nCaso seja aluno ou professor apenas digite \"Enter\"");
     System.out.print("\nLogin: ");
     String log = scanner.nextLine();
