@@ -161,6 +161,7 @@ public class Pesquisa extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void NomeAtualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeAtualizaActionPerformed

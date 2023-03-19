@@ -36,6 +36,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Principal");
 
         jLabel1.setText("Entrar como:");
 
@@ -144,6 +145,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void gestorRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestorRadioButtonActionPerformed
@@ -175,10 +177,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void sairButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairButtonActionPerformed
         if(sairButton.isEnabled()){
-           Alunos alunos = Alunos.getInstancia();
-           
             System.out.println("Saiu do programa");
-            alunos.exibeNaTela();
             System.exit(0);
         }                                     
     }//GEN-LAST:event_sairButtonActionPerformed

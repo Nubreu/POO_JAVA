@@ -48,6 +48,7 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastrar Aluno");
 
         backTelaGestor.setText("Voltar");
         backTelaGestor.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +74,19 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         jLabel4.setText("Digite seu contato");
 
         jLabel5.setText("Digite sua matrícula ");
+
+        matriculaAluno.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                matriculaAlunoInputMethodTextChanged(evt);
+            }
+        });
+        matriculaAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                matriculaAlunoActionPerformed(evt);
+            }
+        });
 
         cadastrarButton.setText("Cadastrar");
         cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -175,6 +189,7 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backTelaGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTelaGestorActionPerformed
@@ -193,16 +208,30 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         if(cadastrarButton.isEnabled()){
             Alunos alunos = Alunos.getInstancia();
             Aluno e = getInfoAluno();
-
-            alunos.adiciona(e);
+            if (e.nome.equals("")||e.contato.equals("")||e.cpf.equals("")){
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+                limparCaixas(); 
+            }
+            else{
+                alunos.adiciona(e);
+                limparCaixas(); 
+                JOptionPane.showMessageDialog(null, "Alunos cadastrados com sucesso!");
+            }
         }
-        
-        limparCaixas();        
+
     }//GEN-LAST:event_cadastrarButtonActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void matriculaAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matriculaAlunoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_matriculaAlunoActionPerformed
+
+    private void matriculaAlunoInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_matriculaAlunoInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_matriculaAlunoInputMethodTextChanged
 
     /**
      * @param args the command line arguments
@@ -264,6 +293,9 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         matriculaAluno.setText("");
         nomeAluno.setText("");
     }
+
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backTelaGestor;

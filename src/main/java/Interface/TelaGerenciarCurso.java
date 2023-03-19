@@ -35,6 +35,7 @@ public class TelaGerenciarCurso extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gerenciar Curso");
 
         backTelaGestor.setText("Voltar");
         backTelaGestor.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +116,7 @@ public class TelaGerenciarCurso extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backTelaGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTelaGestorActionPerformed
