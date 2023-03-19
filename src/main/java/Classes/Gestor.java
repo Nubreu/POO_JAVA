@@ -15,19 +15,12 @@ public class Gestor extends Pessoa{
     senha = "123";
     autorizado = false;
 }
+    
 
 public Gestor(String login, String senha) {
     this.login = login;
     this.senha = senha;
 }
-
-    public Scanner getScanner() {
-        return scanner;
-    }
-
-    public void setScanner(Scanner scanner) {
-        this.scanner = scanner;
-    }
 
     public String getLogin() {
         return login;
@@ -45,15 +38,6 @@ public Gestor(String login, String senha) {
         this.senha = senha;
     }
 
-    public boolean isAutorizado() {
-        return autorizado;
-    }
-
-    public void setAutorizado(boolean autorizado) {
-        this.autorizado = autorizado;
-    }
-
-
 public boolean condicao() {
     return autorizado;
 }
@@ -70,4 +54,5 @@ public void validacao() {
         autorizado = false;
     }
 }
+
 }

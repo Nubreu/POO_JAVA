@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Aluno extends Pessoa {
     private int matricula;
     private ArrayList<Curso> cursos;
+    
 public Aluno() {
     super();
     matricula = 1000;
