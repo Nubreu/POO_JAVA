@@ -42,7 +42,6 @@ public class TelaProfessor extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tela Professor");
 
         backTelaPrincial.setText("Voltar");
         backTelaPrincial.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +85,6 @@ public class TelaProfessor extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backTelaPrincialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTelaPrincialActionPerformed

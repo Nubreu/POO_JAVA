@@ -6,7 +6,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -106,16 +106,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar Aluno"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gerenciarProfessorActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="gerenciarCurso">
           <Properties>
             <Property name="text" type="java.lang.String" value="Excluir Aluno"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gerenciarCursoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="gerenciarSala">
           <Properties>
             <Property name="text" type="java.lang.String" value="Atualizar Aluno"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gerenciarSalaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>

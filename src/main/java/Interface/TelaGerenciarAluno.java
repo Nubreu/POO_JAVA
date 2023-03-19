@@ -53,10 +53,25 @@ public class TelaGerenciarAluno extends javax.swing.JFrame {
         });
 
         gerenciarProfessor.setText("Consultar Aluno");
+        gerenciarProfessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerenciarProfessorActionPerformed(evt);
+            }
+        });
 
         gerenciarCurso.setText("Excluir Aluno");
+        gerenciarCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerenciarCursoActionPerformed(evt);
+            }
+        });
 
         gerenciarSala.setText("Atualizar Aluno");
+        gerenciarSala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerenciarSalaActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Selecione a opção desejada:");
@@ -117,7 +132,6 @@ public class TelaGerenciarAluno extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backTelaGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTelaGestorActionPerformed
@@ -131,6 +145,24 @@ public class TelaGerenciarAluno extends javax.swing.JFrame {
         new TelaCadastrarAluno().setVisible(true);
         dispose();
     }//GEN-LAST:event_gerenciarAlunoActionPerformed
+
+    private void gerenciarProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarProfessorActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new TelaAluno().setVisible(true);
+    }//GEN-LAST:event_gerenciarProfessorActionPerformed
+
+    private void gerenciarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarCursoActionPerformed
+            // TODO add your handling code here:
+        dispose();
+        new TelaAluno().setVisible(true);
+    }//GEN-LAST:event_gerenciarCursoActionPerformed
+
+    private void gerenciarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarSalaActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new TelaAluno().setVisible(true);
+    }//GEN-LAST:event_gerenciarSalaActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,6 +6,7 @@
 
 package Interface;
 import javax.swing.JOptionPane;
+import Classes.*;
 
 /**
  *
@@ -32,10 +33,12 @@ public class TelaAluno extends javax.swing.JFrame {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jPanel1 = new javax.swing.JPanel();
-        backTelaPrincial = new javax.swing.JButton();
         busca = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         inputCpf = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        backTelaPrincial = new javax.swing.JButton();
 
         jInternalFrame1.setVisible(true);
 
@@ -51,14 +54,6 @@ public class TelaAluno extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Busca");
-
-        backTelaPrincial.setText("Voltar");
-        backTelaPrincial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backTelaPrincialActionPerformed(evt);
-            }
-        });
 
         busca.setText("Pesquisar");
         busca.addActionListener(new java.awt.event.ActionListener() {
@@ -69,22 +64,48 @@ public class TelaAluno extends javax.swing.JFrame {
 
         jLabel1.setText("Digite seu CPF");
 
+        jButton1.setText("Excluir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jToggleButton1.setText("Atualizar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
+        backTelaPrincial.setText("Voltar");
+        backTelaPrincial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backTelaPrincialActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
-                        .addComponent(busca)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(backTelaPrincial))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(inputCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(inputCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(busca)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(backTelaPrincial)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -96,8 +117,10 @@ public class TelaAluno extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backTelaPrincial)
-                    .addComponent(busca))
+                    .addComponent(busca)
+                    .addComponent(jButton1)
+                    .addComponent(jToggleButton1)
+                    .addComponent(backTelaPrincial))
                 .addGap(22, 22, 22))
         );
 
@@ -108,18 +131,17 @@ public class TelaAluno extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(10, 10, 10))
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backTelaPrincialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTelaPrincialActionPerformed
@@ -129,11 +151,29 @@ public class TelaAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_backTelaPrincialActionPerformed
 
     private void buscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
         cpf = inputCpf.getText();
-        JOptionPane.showMessageDialog(null, "O CPF digitado é: " + cpf);
+        dispose();
+        new TelaAluno().setVisible(true);
         //JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos.", "Erro de login", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_buscaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        cpf = inputCpf.getText();
+        
+        Alunos alunos = Alunos.getInstancia();
+        
+        alunos.excluir(cpf);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        cpf = inputCpf.getText();
+        
+        dispose();
+        new Pesquisa(cpf).setVisible(true);
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     
     /**
@@ -175,8 +215,10 @@ public class TelaAluno extends javax.swing.JFrame {
     private javax.swing.JButton backTelaPrincial;
     private javax.swing.JButton busca;
     private javax.swing.JTextField inputCpf;
+    private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }

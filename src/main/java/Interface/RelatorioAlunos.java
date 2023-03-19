@@ -51,7 +51,6 @@ public class RelatorioAlunos extends javax.swing.JFrame {
         tabelaAlunos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Relatorio");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Formulário de Alunos");
@@ -92,7 +91,6 @@ public class RelatorioAlunos extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
