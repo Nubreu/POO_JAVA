@@ -48,6 +48,7 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastrar Aluno");
 
         backTelaGestor.setText("Voltar");
         backTelaGestor.addActionListener(new java.awt.event.ActionListener() {
@@ -175,6 +176,7 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backTelaGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTelaGestorActionPerformed
@@ -197,7 +199,8 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
             alunos.adiciona(e);
         }
         
-        limparCaixas();        
+        limparCaixas();
+        JOptionPane.showMessageDialog(null, "Alunos cadastrados com sucesso!");        
     }//GEN-LAST:event_cadastrarButtonActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
