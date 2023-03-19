@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interface;
-import Classes.Aluno;
-import javax.swing.JOptionPane;
+import Classes.*;
+import javax.swing.*;
 
 /**
  *
@@ -45,6 +45,7 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         matriculaAluno = new javax.swing.JTextField();
         cadastrarButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,7 +81,13 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Curso:");
+        jLabel6.setText("Curso");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,17 +107,17 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
                         .addComponent(nomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel3)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel6))
                         .addGap(19, 19, 19)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(contatoAluno, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(cpfAluno)
-                            .addComponent(matriculaAluno))))
+                            .addComponent(matriculaAluno)
+                            .addComponent(jTextField1))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -139,13 +146,15 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(matriculaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(13, 13, 13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backTelaGestor)
                     .addComponent(cadastrarButton))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,10 +189,20 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
 
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         // TODO add your handling code here:
-        Aluno novoAluno = getInfoAluno();
-        limparCaixas();
        
+        if(cadastrarButton.isEnabled()){
+            Alunos alunos = Alunos.getInstancia();
+            Aluno e = getInfoAluno();
+
+            alunos.adiciona(e);
+        }
+        
+        limparCaixas();        
     }//GEN-LAST:event_cadastrarButtonActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,6 +253,7 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         Aluno aux = new Aluno();
         aux.nome = nomeAluno.getText();
         aux.contato = contatoAluno.getText();
+        aux.cpf = cpfAluno.getText();
         aux.setMatricula(Integer.parseInt(matriculaAluno.getText()));
         //falta o curso
         return aux;
@@ -257,6 +277,7 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField matriculaAluno;
     private javax.swing.JTextField nomeAluno;
     // End of variables declaration//GEN-END:variables

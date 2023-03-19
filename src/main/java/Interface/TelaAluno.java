@@ -51,7 +51,6 @@ public class TelaAluno extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Consultar Aluno");
 
         backTelaPrincial.setText("Voltar");
         backTelaPrincial.addActionListener(new java.awt.event.ActionListener() {

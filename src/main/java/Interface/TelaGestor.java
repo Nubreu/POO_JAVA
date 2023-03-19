@@ -178,7 +178,7 @@ public class TelaGestor extends javax.swing.JFrame {
 
     private void gerenciarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarSalaActionPerformed
         if (gerenciarSala.isEnabled()) {
-            new TelaGerenciarSala().setVisible(true);
+            new TelaCadastrarSala().setVisible(true);
             dispose();
         } 
     }//GEN-LAST:event_gerenciarSalaActionPerformed

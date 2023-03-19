@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interface;
-
+import Interface.RelatorioAlunos;
+import Classes.*;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author pedro
@@ -125,8 +127,8 @@ public class TelaGerarRelatorio extends javax.swing.JFrame {
 
     private void gerenciarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarAlunoActionPerformed
         // TODO add your handling code here:
-        new TelaRelatorioAluno().setVisible(true);
-        dispose();
+        //pegar os dados do vetor e adicionar no forms
+        new RelatorioAlunos().setVisible(true);
     }//GEN-LAST:event_gerenciarAlunoActionPerformed
 
     /**

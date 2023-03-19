@@ -2,6 +2,7 @@
 package Interface;
 
 import javax.swing.ButtonGroup;
+import Classes.*;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -13,6 +14,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ButtonGroup grupoBotoes = new ButtonGroup();
         grupoBotoes.add(gestorRadioButton);
         grupoBotoes.add(professorRadioButton);
+        grupoBotoes.add(alunoRadioButton);
     }
 
     /**
@@ -28,12 +30,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         gestorRadioButton = new javax.swing.JRadioButton();
         professorRadioButton = new javax.swing.JRadioButton();
+        alunoRadioButton = new javax.swing.JRadioButton();
         EntrarTP = new javax.swing.JButton();
         sairButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tela Princiapl");
 
         jLabel1.setText("Entrar como:");
 
@@ -44,10 +46,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        professorRadioButton.setText("Professor/Aluno");
+        professorRadioButton.setText("Professor");
         professorRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 professorRadioButtonActionPerformed(evt);
+            }
+        });
+
+        alunoRadioButton.setText("Aluno");
+        alunoRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alunoRadioButtonActionPerformed(evt);
             }
         });
 
@@ -82,11 +91,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addGap(14, 14, 14)
                                 .addComponent(gestorRadioButton)
                                 .addGap(18, 18, 18)
-                                .addComponent(professorRadioButton))
+                                .addComponent(professorRadioButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(alunoRadioButton))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel1)))
-                        .addGap(0, 75, Short.MAX_VALUE)))
+                        .addGap(0, 10, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -97,7 +108,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gestorRadioButton)
-                    .addComponent(professorRadioButton))
+                    .addComponent(professorRadioButton)
+                    .addComponent(alunoRadioButton))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EntrarTP)
@@ -119,7 +131,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,13 +154,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_professorRadioButtonActionPerformed
 
+    private void alunoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alunoRadioButtonActionPerformed
+
     private void EntrarTPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarTPActionPerformed
         if (gestorRadioButton.isSelected()) {
             new TelaLogin().setVisible(true);
             dispose();
         } else if (professorRadioButton.isSelected()) {
             new TelaProfessor().setVisible(true);
-            dispose();        
+            dispose();
+        } else if (alunoRadioButton.isSelected()) {
+             new TelaAluno().setVisible(true);
+            dispose();           
         } else {
             
         }    
@@ -156,6 +175,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void sairButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairButtonActionPerformed
         if(sairButton.isEnabled()){
+           Alunos alunos = Alunos.getInstancia();
+           
+            System.out.println("Saiu do programa");
+            alunos.exibeNaTela();
             System.exit(0);
         }                                     
     }//GEN-LAST:event_sairButtonActionPerformed
@@ -197,6 +220,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton EntrarTP;
+    private javax.swing.JRadioButton alunoRadioButton;
     private javax.swing.JRadioButton gestorRadioButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

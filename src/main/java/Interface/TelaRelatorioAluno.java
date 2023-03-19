@@ -4,12 +4,22 @@
  */
 package Interface;
 
+import Classes.Aluno;
+import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author pedro
  */
 public class TelaRelatorioAluno extends javax.swing.JFrame {
+    public ArrayList<Aluno> alunos = new ArrayList<>();
 
+    public void setAlunos(ArrayList<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+    
     /**
      * Creates new form TelaRelatorioAluno
      */
@@ -27,49 +37,84 @@ public class TelaRelatorioAluno extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaAlunos = new javax.swing.JTable();
+        backGestor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaAlunos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nome", "CPF", "Contato", "Matricula", "Cursos"
+                "Nome"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jTable1.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tabelaAlunos.setColumnSelectionAllowed(true);
+        tabelaAlunos.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tabelaAlunosAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(tabelaAlunos);
+        tabelaAlunos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+
+        backGestor.setText("Voltar");
+        backGestor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backGestorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(backGestor)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(backGestor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backGestorActionPerformed
+        // TODO add your handling code here:
+        new TelaGerarRelatorio().setVisible(true);
+        dispose();
+        
+        
+    }//GEN-LAST:event_backGestorActionPerformed
+
+    private void tabelaAlunosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tabelaAlunosAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabelaAlunosAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -106,8 +151,37 @@ public class TelaRelatorioAluno extends javax.swing.JFrame {
         });
     }
 
+    public JTable getTabelaAlunos() {
+        return tabelaAlunos;
+    }
+
+    public void setTabelaAlunos(JTable tabelaAlunos) {
+        this.tabelaAlunos = tabelaAlunos;
+    }
+    
+    public void atualizarTabelaAlunos() {
+        DefaultTableModel model = (DefaultTableModel) tabelaAlunos.getModel();
+        model.setRowCount(0); // limpa a tabela
+
+        for (Aluno aluno : alunos) {
+            Object[] row = {aluno.nome};
+            model.addRow(row);
+        }
+        
+    }
+    
+    private void adicionar(){
+        String p = "pedro";
+        DefaultTableModel t = (DefaultTableModel) tabelaAlunos.getModel();
+        Object[] x = new Object[]{
+            p
+        };
+        t.addRow(x);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backGestor;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabelaAlunos;
     // End of variables declaration//GEN-END:variables
 }
