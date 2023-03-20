@@ -28,7 +28,24 @@ public class Alunos {
         return alunos;
     }
     
-    
+    public void excluir(String cpf){
+      for (Aluno aluno : alunos) {
+        if (aluno.getCpf().equals(cpf)) {
+            JOptionPane.showMessageDialog(null, "O aluno " + aluno.getNome() + " com CPF " + aluno.getCpf() + "Foi ecluido da nossa lista");
+            alunos.remove(aluno);
+        }
+      }
+    }
+
+    public void busca(String cpf){
+        for (Aluno aluno : alunos) {
+            if (aluno.getCpf().equals(cpf)) {
+                JOptionPane.showMessageDialog(null, "Nome: " + aluno.getNome() + "\nCPF: " + aluno.getCpf() + "\nContato: " + aluno.getContato());           
+                return; // encerra a busca após encontrar o aluno
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Aluno não encontrado");
+    }
 
    public void exibeNaTela(){
     StringBuilder mensagem = new StringBuilder();

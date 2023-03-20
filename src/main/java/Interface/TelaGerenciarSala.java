@@ -102,6 +102,7 @@ public class TelaGerenciarSala extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backGestorActionPerformed
