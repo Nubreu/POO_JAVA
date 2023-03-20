@@ -40,9 +40,7 @@ public class Alunos {
     public void busca(String cpf){
         for (Aluno aluno : alunos) {
             if (aluno.getCpf().equals(cpf)) {
-                JOptionPane.showMessageDialog(null, "Nome: " + aluno.getNome());
-                JOptionPane.showMessageDialog(null, "CPF: " + aluno.getCpf());
-                JOptionPane.showMessageDialog(null, "Contato: " + aluno.getContato());                
+                JOptionPane.showMessageDialog(null, "Nome: " + aluno.getNome() + "\nCPF: " + aluno.getCpf() + "\nContato: " + aluno.getContato());           
                 return; // encerra a busca após encontrar o aluno
             }
         }

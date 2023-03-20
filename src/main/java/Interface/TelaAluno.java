@@ -155,6 +155,8 @@ public class TelaAluno extends javax.swing.JFrame {
     private void buscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaActionPerformed
             // TODO add your handling code here:
         cpf = inputCpf.getText();
+        Alunos alunos = Alunos.getInstancia();
+        alunos.busca(cpf);
         dispose();
         new TelaAluno().setVisible(true);
         //JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos.", "Erro de login", JOptionPane.ERROR_MESSAGE);
