@@ -155,10 +155,12 @@ public class TelaAluno extends javax.swing.JFrame {
     private void buscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaActionPerformed
             // TODO add your handling code here:
         cpf = inputCpf.getText();
-        Alunos alunos = Alunos.getInstancia();
-        alunos.busca(cpf);
         dispose();
+        
+        Colecao alunos = Colecao.getInstancia();
+        
         new TelaAluno().setVisible(true);
+        
         //JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos.", "Erro de login", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_buscaActionPerformed
 
@@ -166,9 +168,9 @@ public class TelaAluno extends javax.swing.JFrame {
         // TODO add your handling code here:
         cpf = inputCpf.getText();
         
-        Alunos alunos = Alunos.getInstancia();
+        Colecao alunos = Colecao.getInstancia();
         
-        alunos.excluir(cpf);
+        alunos.excluirAluno(cpf);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed

@@ -54,6 +54,11 @@ public class TelaGerarRelatorio extends javax.swing.JFrame {
         });
 
         gerenciarProfessor.setText("Professor");
+        gerenciarProfessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerenciarProfessorActionPerformed(evt);
+            }
+        });
 
         gerenciarCurso.setText("Curso");
 
@@ -132,6 +137,11 @@ public class TelaGerarRelatorio extends javax.swing.JFrame {
         //pegar os dados do vetor e adicionar no forms
         new RelatorioAlunos().setVisible(true);
     }//GEN-LAST:event_gerenciarAlunoActionPerformed
+
+    private void gerenciarProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarProfessorActionPerformed
+        // TODO add your handling code here:
+        new RelatorioProfessor().setVisible(true);
+    }//GEN-LAST:event_gerenciarProfessorActionPerformed
 
     /**
      * @param args the command line arguments

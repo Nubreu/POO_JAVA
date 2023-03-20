@@ -152,6 +152,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_gestorRadioButtonActionPerformed
 
+    private void professorRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_professorRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_professorRadioButtonActionPerformed
+
     private void alunoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoRadioButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_alunoRadioButtonActionPerformed
@@ -177,10 +181,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             System.exit(0);
         }                                     
     }//GEN-LAST:event_sairButtonActionPerformed
-
-    private void professorRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_professorRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_professorRadioButtonActionPerformed
 
     /**
      * @param args the command line arguments
