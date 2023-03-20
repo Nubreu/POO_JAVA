@@ -153,15 +153,12 @@ public class TelaAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_backTelaPrincialActionPerformed
 
     private void buscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaActionPerformed
-            // TODO add your handling code here:
         cpf = inputCpf.getText();
-        dispose();
-        
         Colecao alunos = Colecao.getInstancia();
-        
+        alunos.buscaAluno(cpf);
+        dispose();
         new TelaAluno().setVisible(true);
         
-        //JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos.", "Erro de login", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_buscaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

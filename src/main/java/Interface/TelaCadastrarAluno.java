@@ -4,6 +4,7 @@
  */
 package Interface;
 import Classes.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
 /**
@@ -21,6 +22,21 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
      */
     public TelaCadastrarAluno() {
         initComponents();
+        ArrayList<Curso> cursos = new ArrayList<>(); 
+        Curso c1 = new Curso(1,"CC");
+        Curso c2 = new Curso(2,"Geologia");
+        cursos.add(c1);
+        cursos.add(c2);
+        preencherComboCursos(cursos);
+    }
+    public void preencherComboCursos(ArrayList<Curso> cursos) {
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+
+        for (Curso curso : cursos) {
+            model.addElement(curso.getNome()); // adiciona o nome do curso ao modelo do JComboBox
+        }
+
+        listCursos.setModel(model); // define o modelo do JComboBox
     }
 
     /**
@@ -45,7 +61,8 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         matriculaAluno = new javax.swing.JTextField();
         cadastrarButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listCursos = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar Aluno");
@@ -97,11 +114,12 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
 
         jLabel6.setText("Curso");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
+        listCursos.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
         });
+        jScrollPane1.setViewportView(listCursos);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -122,16 +140,21 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel6))
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(contatoAluno, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cpfAluno)
-                            .addComponent(matriculaAluno)
-                            .addComponent(jTextField1))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel3))
+                                .addGap(78, 78, 78)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(contatoAluno, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cpfAluno)
+                                    .addComponent(matriculaAluno)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(85, 85, 85)
+                                .addComponent(jLabel6)
+                                .addGap(26, 26, 26)
+                                .addComponent(jScrollPane1)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -160,15 +183,15 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(matriculaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backTelaGestor)
                     .addComponent(cadastrarButton))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -192,38 +215,23 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backTelaGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTelaGestorActionPerformed
-        TelaGestor telaGestor = new TelaGestor();
-        telaGestor.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_backTelaGestorActionPerformed
-
-    private void nomeAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeAlunoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeAlunoActionPerformed
-
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         // TODO add your handling code here:
-       
+
         if(cadastrarButton.isEnabled()){
             Colecao alunos = Colecao.getInstancia();
             Aluno e = getInfoAluno();
             if (e.nome.equals("")||e.contato.equals("")||e.cpf.equals("")){
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos");
-                limparCaixas(); 
+                limparCaixas();
             }
             else{
                 alunos.addAluno(e);
-                limparCaixas(); 
+                limparCaixas();
                 JOptionPane.showMessageDialog(null, "Alunos cadastrados com sucesso!");
             }
         }
-
     }//GEN-LAST:event_cadastrarButtonActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void matriculaAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matriculaAlunoActionPerformed
         // TODO add your handling code here:
@@ -232,6 +240,16 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
     private void matriculaAlunoInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_matriculaAlunoInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_matriculaAlunoInputMethodTextChanged
+
+    private void nomeAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeAlunoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeAlunoActionPerformed
+
+    private void backTelaGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTelaGestorActionPerformed
+        TelaGestor telaGestor = new TelaGestor();
+        telaGestor.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_backTelaGestorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,7 +327,8 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listCursos;
     private javax.swing.JTextField matriculaAluno;
     private javax.swing.JTextField nomeAluno;
     // End of variables declaration//GEN-END:variables
