@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interface;
-import Interface.RelatorioAlunos;
+import Interface.RelatorioProfessor;
 import Classes.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -11,27 +11,27 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author César
  */
-public class RelatorioAlunos extends javax.swing.JFrame {
+public class RelatorioProfessor extends javax.swing.JFrame {
 
     /**
      * Creates new form RelatorioAlunos
      */
-    public RelatorioAlunos() {
+    public RelatorioProfessor() {
         initComponents();
         
-        Colecao alunos = Colecao.getInstancia();
+        Colecao professores = Colecao.getInstancia();
         
-        for(Aluno aluno: alunos.getAlunos()){
+        for(Professor professor: professores.getProfessores()){
             // faça algo com cada aluno
-            DefaultTableModel tabela = (DefaultTableModel) tabelaAlunos.getModel();
+            DefaultTableModel tabela = (DefaultTableModel) tabelaProfessor.getModel();
 
-            Object[] novoAluno = new Object[]{
-               aluno.getNome(),
-               aluno.getCpf(),
-               aluno.getContato()
+            Object[] novoProfessor = new Object[]{
+               professor.nome,
+               professor.cpf,
+               professor.contato
             };
             
-          tabela.addRow(novoAluno);
+          tabela.addRow(novoProfessor);
             
         }
     }
@@ -48,7 +48,7 @@ public class RelatorioAlunos extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaAlunos = new javax.swing.JTable();
+        tabelaProfessor = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Relatorio Alunos");
@@ -56,7 +56,7 @@ public class RelatorioAlunos extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Formulário de Alunos");
 
-        tabelaAlunos.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaProfessor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -64,9 +64,9 @@ public class RelatorioAlunos extends javax.swing.JFrame {
                 "Nome", "CPF", "Contato"
             }
         ));
-        jScrollPane1.setViewportView(tabelaAlunos);
-        if (tabelaAlunos.getColumnModel().getColumnCount() > 0) {
-            tabelaAlunos.getColumnModel().getColumn(2).setResizable(false);
+        jScrollPane1.setViewportView(tabelaProfessor);
+        if (tabelaProfessor.getColumnModel().getColumnCount() > 0) {
+            tabelaProfessor.getColumnModel().getColumn(2).setResizable(false);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -112,20 +112,21 @@ public class RelatorioAlunos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RelatorioAlunos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RelatorioAlunos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RelatorioAlunos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RelatorioAlunos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RelatorioAlunos().setVisible(true);
+                new RelatorioProfessor().setVisible(true);
             }
         });
     }
@@ -133,6 +134,6 @@ public class RelatorioAlunos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelaAlunos;
+    private javax.swing.JTable tabelaProfessor;
     // End of variables declaration//GEN-END:variables
 }

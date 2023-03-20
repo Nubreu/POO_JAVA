@@ -61,22 +61,20 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="133" max="32767" attributes="0"/>
-                          <Component id="nomeAluno" min="-2" pref="246" max="-2" attributes="0"/>
+                          <Component id="nomeProfessor" min="-2" pref="246" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="contatoAluno" alignment="1" max="32767" attributes="0"/>
-                              <Component id="cpfAluno" max="32767" attributes="0"/>
-                              <Component id="matriculaAluno" max="32767" attributes="0"/>
-                              <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="contatoProfessor" alignment="1" max="32767" attributes="0"/>
+                              <Component id="cpfProfessor" max="32767" attributes="0"/>
+                              <Component id="cursoProfessor" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -98,34 +96,29 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="nomeAluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nomeProfessor" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cpfAluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cpfProfessor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="contatoAluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="contatoProfessor" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="matriculaAluno" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cursoProfessor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="backTelaGestor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cadastrarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -144,7 +137,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Digite os dados do aluno"/>
+            <Property name="text" type="java.lang.String" value="Digite os dados do Professor"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -153,12 +146,12 @@
             <Property name="text" type="java.lang.String" value="Digite seu nome"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="nomeAluno">
+        <Component class="javax.swing.JTextField" name="nomeProfessor">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeAlunoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeProfessorActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="cpfAluno">
+        <Component class="javax.swing.JTextField" name="cpfProfessor">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -170,18 +163,7 @@
             <Property name="text" type="java.lang.String" value="Digite seu contato"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="contatoAluno">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Digite sua matr&#xed;cula "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="matriculaAluno">
-          <Events>
-            <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="matriculaAlunoInputMethodTextChanged"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="matriculaAlunoActionPerformed"/>
-          </Events>
+        <Component class="javax.swing.JTextField" name="contatoProfessor">
         </Component>
         <Component class="javax.swing.JButton" name="cadastrarButton">
           <Properties>
@@ -196,9 +178,9 @@
             <Property name="text" type="java.lang.String" value="Curso"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="cursoProfessor">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cursoProfessorActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

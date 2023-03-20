@@ -127,6 +127,8 @@ public class TelaGerenciarProfessor extends javax.swing.JFrame {
 
     private void gerenciarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarAlunoActionPerformed
         // TODO add your handling code here:
+        new TelaCadastrarProfessor().setVisible(true);
+        dispose();
     }//GEN-LAST:event_gerenciarAlunoActionPerformed
 
     /**
