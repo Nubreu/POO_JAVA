@@ -13,27 +13,42 @@ import javax.swing.table.DefaultTableModel;
  */
 public class RelatorioAlunos extends javax.swing.JFrame {
 
+    Colecao alunos = Colecao.getInstancia();
     /**
      * Creates new form RelatorioAlunos
      */
     public RelatorioAlunos() {
         initComponents();
         
-        Colecao alunos = Colecao.getInstancia();
-        
         for(Aluno aluno: alunos.getAlunos()){
             // faça algo com cada aluno
             DefaultTableModel tabela = (DefaultTableModel) tabelaAlunos.getModel();
+            StringBuilder sb = new StringBuilder();
 
+            for(Curso c : aluno.getCursos()){
+                sb.append(c.getNome());
+                sb.append(", ");
+                System.out.println("Nome" + c.getNome());
+            }
+        
+            if(sb.length() > 0){
+             sb.setLength(sb.length() - 2);
+            }
+            
+            String result = sb.toString();
+            
             Object[] novoAluno = new Object[]{
                aluno.getNome(),
                aluno.getCpf(),
-               aluno.getContato()
+               aluno.getContato(),
+               result
             };
             
           tabela.addRow(novoAluno);
+
             
         }
+        
     }
     
 
@@ -49,51 +64,84 @@ public class RelatorioAlunos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaAlunos = new javax.swing.JTable();
+        saveToFile = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Relatorio Alunos");
+        setBackground(new java.awt.Color(50, 50, 50));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        jLabel1.setBackground(new java.awt.Color(50, 50, 50));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Formulário de Alunos");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Relatório de Alunos");
 
+        tabelaAlunos.setBackground(new java.awt.Color(110, 110, 110));
+        tabelaAlunos.setForeground(new java.awt.Color(255, 255, 255));
         tabelaAlunos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nome", "CPF", "Contato"
+                "Nome", "CPF", "Relatório Alunos", "Cursos"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelaAlunos.setSelectionBackground(new java.awt.Color(15, 15, 15));
+        tabelaAlunos.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tabelaAlunos);
-        if (tabelaAlunos.getColumnModel().getColumnCount() > 0) {
-            tabelaAlunos.getColumnModel().getColumn(2).setResizable(false);
-        }
+
+        saveToFile.setText("Salvar em arquivo");
+        saveToFile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        saveToFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveToFileActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(269, 269, 269)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(124, 124, 124)
+                        .addComponent(saveToFile))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saveToFile)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void saveToFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveToFileActionPerformed
+        // TODO add your handling code here:
+        Colecao cursos = Colecao.getInstancia();
+        cursos.salvarDados();
+    }//GEN-LAST:event_saveToFileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,6 +181,7 @@ public class RelatorioAlunos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton saveToFile;
     private javax.swing.JTable tabelaAlunos;
     // End of variables declaration//GEN-END:variables
 }

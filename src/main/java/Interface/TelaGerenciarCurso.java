@@ -37,6 +37,11 @@ public class TelaGerenciarCurso extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciar Curso");
 
+        jPanel1.setBackground(new java.awt.Color(50, 50, 50));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        backTelaGestor.setBackground(new java.awt.Color(110, 110, 110));
+        backTelaGestor.setForeground(new java.awt.Color(255, 255, 255));
         backTelaGestor.setText("Voltar");
         backTelaGestor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,6 +49,8 @@ public class TelaGerenciarCurso extends javax.swing.JFrame {
             }
         });
 
+        gerenciarAluno.setBackground(new java.awt.Color(110, 110, 110));
+        gerenciarAluno.setForeground(new java.awt.Color(255, 255, 255));
         gerenciarAluno.setText("Cadastrar Curso");
         gerenciarAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,13 +58,35 @@ public class TelaGerenciarCurso extends javax.swing.JFrame {
             }
         });
 
+        gerenciarProfessor.setBackground(new java.awt.Color(110, 110, 110));
+        gerenciarProfessor.setForeground(new java.awt.Color(255, 255, 255));
         gerenciarProfessor.setText("Consultar Curso");
+        gerenciarProfessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerenciarProfessorActionPerformed(evt);
+            }
+        });
 
+        gerenciarCurso.setBackground(new java.awt.Color(110, 110, 110));
+        gerenciarCurso.setForeground(new java.awt.Color(255, 255, 255));
         gerenciarCurso.setText("Excluir Curso");
+        gerenciarCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerenciarCursoActionPerformed(evt);
+            }
+        });
 
+        gerenciarSala.setBackground(new java.awt.Color(110, 110, 110));
+        gerenciarSala.setForeground(new java.awt.Color(255, 255, 255));
         gerenciarSala.setText("Atualizar Curso");
+        gerenciarSala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerenciarSalaActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Selecione a opção desejada:");
         jLabel1.setToolTipText("");
 
@@ -66,12 +95,12 @@ public class TelaGerenciarCurso extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(113, Short.MAX_VALUE)
+                .addContainerGap(136, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(gerenciarProfessor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(gerenciarCurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(gerenciarAluno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(gerenciarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(gerenciarSala, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(41, 41, 41)
                 .addComponent(backTelaGestor)
                 .addGap(21, 21, 21))
@@ -93,7 +122,7 @@ public class TelaGerenciarCurso extends javax.swing.JFrame {
                 .addComponent(gerenciarCurso)
                 .addGap(18, 18, 18)
                 .addComponent(gerenciarSala)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(backTelaGestor)
                 .addGap(18, 18, 18))
         );
@@ -102,17 +131,11 @@ public class TelaGerenciarCurso extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -127,7 +150,29 @@ public class TelaGerenciarCurso extends javax.swing.JFrame {
 
     private void gerenciarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarAlunoActionPerformed
         // TODO add your handling code here:
+        dispose();
+        new TelaCadastrarCurso().setVisible(true);
     }//GEN-LAST:event_gerenciarAlunoActionPerformed
+
+    private void gerenciarProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarProfessorActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new TelaCurso().setVisible(true);
+    }//GEN-LAST:event_gerenciarProfessorActionPerformed
+
+    private void gerenciarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarSalaActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        
+        new TelaCurso().setVisible(true);
+    }//GEN-LAST:event_gerenciarSalaActionPerformed
+
+    private void gerenciarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarCursoActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        
+        new TelaCurso().setVisible(true);
+    }//GEN-LAST:event_gerenciarCursoActionPerformed
 
     /**
      * @param args the command line arguments

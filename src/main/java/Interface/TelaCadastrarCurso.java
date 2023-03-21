@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interface;
+import Classes.*;
+import javax.swing.*;
 
 /**
  *
@@ -11,11 +13,13 @@ package Interface;
 public class TelaCadastrarCurso extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaCadastrarCurso
+     * Creates new form TelaAluno
      */
     public TelaCadastrarCurso() {
         initComponents();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,25 +30,210 @@ public class TelaCadastrarCurso extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
+        backTelaGestor = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        nomeCurso = new javax.swing.JTextField();
+        codigoCurso = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        cadastrarButton = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        segunda = new javax.swing.JRadioButton();
+        terca = new javax.swing.JRadioButton();
+        quarta = new javax.swing.JRadioButton();
+        quinta = new javax.swing.JRadioButton();
+        sexta = new javax.swing.JRadioButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastrar Aluno");
+
+        jPanel1.setBackground(new java.awt.Color(50, 50, 50));
+
+        backTelaGestor.setBackground(new java.awt.Color(110, 110, 110));
+        backTelaGestor.setForeground(new java.awt.Color(255, 255, 255));
+        backTelaGestor.setText("Voltar");
+        backTelaGestor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backTelaGestorActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Digite os dados do Curso");
+        jLabel1.setToolTipText("");
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Nome do curso");
+
+        nomeCurso.setBackground(new java.awt.Color(120, 120, 120));
+        nomeCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeCursoActionPerformed(evt);
+            }
+        });
+
+        codigoCurso.setBackground(new java.awt.Color(120, 120, 120));
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Digite o Código");
+
+        cadastrarButton.setBackground(new java.awt.Color(110, 110, 110));
+        cadastrarButton.setForeground(new java.awt.Color(255, 255, 255));
+        cadastrarButton.setText("Cadastrar");
+        cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Dia da semana para o curso:");
+
+        segunda.setBackground(new java.awt.Color(50, 50, 50));
+        segunda.setForeground(new java.awt.Color(255, 255, 255));
+        segunda.setText("Segunda-Feira");
+
+        terca.setBackground(new java.awt.Color(50, 50, 50));
+        terca.setForeground(new java.awt.Color(255, 255, 255));
+        terca.setText("Terça-Feira");
+
+        quarta.setBackground(new java.awt.Color(50, 50, 50));
+        quarta.setForeground(new java.awt.Color(255, 255, 255));
+        quarta.setText("Quarta-Feira");
+
+        quinta.setBackground(new java.awt.Color(50, 50, 50));
+        quinta.setForeground(new java.awt.Color(255, 255, 255));
+        quinta.setText("Quinta-Feira");
+
+        sexta.setBackground(new java.awt.Color(50, 50, 50));
+        sexta.setForeground(new java.awt.Color(255, 255, 255));
+        sexta.setText("Sexta-Feira");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel2)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(segunda)
+                    .addComponent(terca)
+                    .addComponent(quarta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(quinta)
+                    .addComponent(sexta))
+                .addGap(75, 75, 75))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(nomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codigoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(cadastrarButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(backTelaGestor)))
+                .addGap(27, 27, 27))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(nomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(codigoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(segunda)
+                    .addComponent(quinta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(terca)
+                    .addComponent(sexta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(quarta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backTelaGestor)
+                    .addComponent(cadastrarButton))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backTelaGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTelaGestorActionPerformed
+        TelaGestor telaGestor = new TelaGestor();
+        telaGestor.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_backTelaGestorActionPerformed
+
+    private void nomeCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeCursoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeCursoActionPerformed
+
+    private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
+        // TODO add your handling code here:
+       
+        if(cadastrarButton.isEnabled()){
+                Colecao cursos = Colecao.getInstancia();
+                Curso e = getInfoCurso();
+                
+            if (e.getNome().equals("")){
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+                limparCaixas(); 
+            }
+            else{
+                cursos.addCurso(e);
+                limparCaixas(); 
+                JOptionPane.showMessageDialog(null, "Curso cadastrado com sucesso!");
+            }
+                
+                
+        }
+
+    }//GEN-LAST:event_cadastrarButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    public Professor enviarMain(Professor a){
+        return a;
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -68,6 +257,37 @@ public class TelaCadastrarCurso extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaCadastrarCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -77,6 +297,39 @@ public class TelaCadastrarCurso extends javax.swing.JFrame {
         });
     }
 
+    public Curso getInfoCurso(){
+        Curso aux = new Curso();
+        int codigo = Integer.parseInt(codigoCurso.getText());
+        aux.setNome(nomeCurso.getText());
+        aux.setCod(codigo);
+        
+        //falta o curso
+        return aux;
+    }
+    public void limparCaixas(){
+        //contatoProfessor.setText("");
+       // cpfProfessor.setText("");
+       // nomeProfessor.setText("");
+    }
+
+
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backTelaGestor;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton cadastrarButton;
+    private javax.swing.JTextField codigoCurso;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField nomeCurso;
+    private javax.swing.JRadioButton quarta;
+    private javax.swing.JRadioButton quinta;
+    private javax.swing.JRadioButton segunda;
+    private javax.swing.JRadioButton sexta;
+    private javax.swing.JRadioButton terca;
     // End of variables declaration//GEN-END:variables
 }

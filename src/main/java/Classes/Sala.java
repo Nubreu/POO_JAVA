@@ -2,10 +2,11 @@
 package Classes;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Sala {
+public class Sala implements Serializable{
     private int identificador;
     private int alunos;
     private int capacidade;

@@ -22,13 +22,14 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
      */
     public TelaCadastrarAluno() {
         initComponents();
-        ArrayList<Curso> cursos = new ArrayList<>(); 
-        Curso c1 = new Curso(1,"CC");
-        Curso c2 = new Curso(2,"Geologia");
-        cursos.add(c1);
-        cursos.add(c2);
-        preencherComboCursos(cursos);
+        
+        Colecao cursos = Colecao.getInstancia();
+        
+        
+        preencherComboCursos(cursos.getCursos());
     }
+
+    
     public void preencherComboCursos(ArrayList<Curso> cursos) {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
 
@@ -38,7 +39,7 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
 
         listCursos.setModel(model); // define o modelo do JComboBox
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,6 +68,9 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar Aluno");
 
+        jPanel1.setBackground(new java.awt.Color(50, 50, 50));
+
+        backTelaGestor.setBackground(new java.awt.Color(110, 110, 110));
         backTelaGestor.setText("Voltar");
         backTelaGestor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,23 +79,38 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Digite os dados do aluno");
         jLabel1.setToolTipText("");
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Digite seu nome");
 
+        nomeAluno.setBackground(new java.awt.Color(110, 110, 110));
+        nomeAluno.setForeground(new java.awt.Color(255, 255, 255));
         nomeAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeAlunoActionPerformed(evt);
             }
         });
 
+        cpfAluno.setBackground(new java.awt.Color(110, 110, 110));
+        cpfAluno.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Digite seu CPF");
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Digite seu contato");
 
+        contatoAluno.setBackground(new java.awt.Color(110, 110, 110));
+        contatoAluno.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Digite sua matrícula ");
 
+        matriculaAluno.setBackground(new java.awt.Color(110, 110, 110));
+        matriculaAluno.setForeground(new java.awt.Color(255, 255, 255));
         matriculaAluno.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
@@ -105,6 +124,7 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
             }
         });
 
+        cadastrarButton.setBackground(new java.awt.Color(110, 110, 110));
         cadastrarButton.setText("Cadastrar");
         cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,13 +132,17 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Curso");
 
+        listCursos.setBackground(new java.awt.Color(110, 110, 110));
+        listCursos.setForeground(new java.awt.Color(255, 255, 255));
         listCursos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        listCursos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane1.setViewportView(listCursos);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -126,41 +150,31 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 133, Short.MAX_VALUE)
-                        .addComponent(nomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel3))
-                                .addGap(78, 78, 78)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(contatoAluno, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cpfAluno)
-                                    .addComponent(matriculaAluno)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addComponent(jLabel6)
-                                .addGap(26, 26, 26)
-                                .addComponent(jScrollPane1)))))
-                .addContainerGap())
+                .addGap(7, 7, 7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(matriculaAluno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                    .addComponent(contatoAluno, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cpfAluno, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nomeAluno, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1))
+                .addGap(0, 30, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(cadastrarButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backTelaGestor))
+                .addGap(18, 18, 18)
+                .addComponent(backTelaGestor)
+                .addGap(31, 31, 31))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,54 +197,59 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(matriculaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backTelaGestor)
                     .addComponent(cadastrarButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(95, 95, 95))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void backTelaGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTelaGestorActionPerformed
+        TelaGestor telaGestor = new TelaGestor();
+        telaGestor.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_backTelaGestorActionPerformed
+
+    private void nomeAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeAlunoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeAlunoActionPerformed
+
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         // TODO add your handling code here:
-
+       
         if(cadastrarButton.isEnabled()){
             Colecao alunos = Colecao.getInstancia();
             Aluno e = getInfoAluno();
             if (e.nome.equals("")||e.contato.equals("")||e.cpf.equals("")){
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos");
-                limparCaixas();
+                limparCaixas(); 
             }
             else{
                 alunos.addAluno(e);
-                limparCaixas();
+                limparCaixas(); 
                 JOptionPane.showMessageDialog(null, "Alunos cadastrados com sucesso!");
             }
         }
+
     }//GEN-LAST:event_cadastrarButtonActionPerformed
 
     private void matriculaAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matriculaAlunoActionPerformed
@@ -240,16 +259,6 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
     private void matriculaAlunoInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_matriculaAlunoInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_matriculaAlunoInputMethodTextChanged
-
-    private void nomeAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeAlunoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeAlunoActionPerformed
-
-    private void backTelaGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTelaGestorActionPerformed
-        TelaGestor telaGestor = new TelaGestor();
-        telaGestor.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_backTelaGestorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,12 +306,19 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
     }
 
     public Aluno getInfoAluno(){
+        Colecao curso = Colecao.getInstancia();
         Aluno aux = new Aluno();
         aux.nome = nomeAluno.getText();
         aux.contato = contatoAluno.getText();
         aux.cpf = cpfAluno.getText();
         aux.setMatricula(Integer.parseInt(matriculaAluno.getText()));
-        //falta o curso
+
+        ArrayList<String> cursosSelecionado = (ArrayList<String>) listCursos.getSelectedValuesList();
+        for(String elem : cursosSelecionado){
+            aux.setCurso(curso.getCurso(elem));
+        }
+        curso.adicionaAluno(aux.getCurso().getNome());
+
         return aux;
     }
     public void limparCaixas(){

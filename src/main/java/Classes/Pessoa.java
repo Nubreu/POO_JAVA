@@ -1,10 +1,11 @@
 
 package Classes;
 
+import java.io.Serializable;
 import javax.lang.model.SourceVersion;
 
 
-public class Pessoa {
+public class Pessoa implements Serializable{
     public String nome;
     public String contato;
     public String cpf;

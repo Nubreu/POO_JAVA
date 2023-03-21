@@ -12,15 +12,17 @@ import Classes.*;
  *
  * @author pedro
  */
-public class TelaProfessor extends javax.swing.JFrame {
+public class TelaCurso extends javax.swing.JFrame {
 
-    public String cpf;
-    Colecao professor = Colecao.getInstancia();
+    public String codString;
+    public int cod;
+    public String nomeCurso;
+    public String nomeProfessor;
     Colecao cursos = Colecao.getInstancia();
     /**
      * Creates new form TelaAluno
      */
-    public TelaProfessor() {
+    public TelaCurso() {
         initComponents();
     }
 
@@ -34,12 +36,16 @@ public class TelaProfessor extends javax.swing.JFrame {
     private void initComponents() {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        busca = new javax.swing.JButton();
+        buscaCurso = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        inputCpf = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        inputCod = new javax.swing.JTextField();
+        excluiCurso = new javax.swing.JButton();
+        atualizaCurso = new javax.swing.JToggleButton();
         backTelaPrincial = new javax.swing.JButton();
 
         jInternalFrame1.setVisible(true);
@@ -55,40 +61,43 @@ public class TelaProfessor extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Aluno");
 
         jPanel1.setBackground(new java.awt.Color(50, 50, 50));
 
-        busca.setBackground(new java.awt.Color(110, 110, 110));
-        busca.setForeground(new java.awt.Color(255, 255, 255));
-        busca.setText("Pesquisar");
-        busca.addActionListener(new java.awt.event.ActionListener() {
+        buscaCurso.setBackground(new java.awt.Color(110, 110, 110));
+        buscaCurso.setForeground(new java.awt.Color(255, 255, 255));
+        buscaCurso.setText("Pesquisar");
+        buscaCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscaActionPerformed(evt);
+                buscaCursoActionPerformed(evt);
             }
         });
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Digite o CPF");
+        jLabel1.setText("Digite o código do curso");
 
-        inputCpf.setBackground(new java.awt.Color(100, 100, 100));
+        inputCod.setBackground(new java.awt.Color(110, 110, 110));
+        inputCod.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(110, 110, 110));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Excluir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        excluiCurso.setBackground(new java.awt.Color(110, 110, 110));
+        excluiCurso.setForeground(new java.awt.Color(255, 255, 255));
+        excluiCurso.setText("Excluir");
+        excluiCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                excluiCursoActionPerformed(evt);
             }
         });
 
-        jToggleButton1.setBackground(new java.awt.Color(110, 110, 110));
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("Atualizar");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        atualizaCurso.setBackground(new java.awt.Color(110, 110, 110));
+        atualizaCurso.setForeground(new java.awt.Color(255, 255, 255));
+        atualizaCurso.setText("Atualizar");
+        atualizaCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                atualizaCursoActionPerformed(evt);
             }
         });
 
@@ -106,36 +115,36 @@ public class TelaProfessor extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(inputCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(busca)
+                        .addComponent(inputCod, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(atualizaCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(excluiCurso)
+                        .addGap(18, 18, 18)
+                        .addComponent(buscaCurso)
                         .addGap(18, 18, 18)
                         .addComponent(backTelaPrincial)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(52, 52, 52))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(inputCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(busca)
-                    .addComponent(jButton1)
-                    .addComponent(jToggleButton1)
+                    .addComponent(jLabel1)
+                    .addComponent(inputCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buscaCurso)
+                    .addComponent(excluiCurso)
+                    .addComponent(atualizaCurso)
                     .addComponent(backTelaPrincial))
-                .addGap(27, 27, 27))
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,42 +168,40 @@ public class TelaProfessor extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_backTelaPrincialActionPerformed
 
-    private void buscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaActionPerformed
+    private void buscaCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaCursoActionPerformed
             // TODO add your handling code here:
-        cpf = inputCpf.getText();
-        dispose();
-       
-        professor.buscaProfessor(cpf);
+        codString = inputCod.getText();
+        cod = Integer.parseInt(codString);
+
+        cursos.buscaCurso(cod);
         
-        inputCpf.setText("");
+        inputCod.setText("");
+        
         //JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos.", "Erro de login", JOptionPane.ERROR_MESSAGE);
-    }//GEN-LAST:event_buscaActionPerformed
+    }//GEN-LAST:event_buscaCursoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void excluiCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluiCursoActionPerformed
         // TODO add your handling code here:
-        cpf = inputCpf.getText();
-        Professor e = new Professor();
-        e = professor.retornaProfessor(cpf);
-        professor.removeProfessor(e);
+        codString = inputCod.getText();
+        cod = Integer.parseInt(codString);
         
-        professor.excluirProfessor(cpf);
-        inputCpf.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
+        cursos.excluirCurso(cod);
+        
+        inputCod.setText("");
+    }//GEN-LAST:event_excluiCursoActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void atualizaCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizaCursoActionPerformed
         // TODO add your handling code here:
-        cpf = inputCpf.getText();
+        codString = inputCod.getText();
+        cod = Integer.parseInt(codString);
         
-        if(professor.buscaProfessor(cpf)){
+        if(cursos.buscaCurso(cod)){
             dispose();
-            new atualizaProfessor(cpf).setVisible(true);     
+            new atualizaCurso(codString).setVisible(true);
         }
         
-        
-        
-        inputCpf.setText("");
- 
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+        inputCod.setText("");
+    }//GEN-LAST:event_atualizaCursoActionPerformed
 
     
     /**
@@ -214,13 +221,13 @@ public class TelaProfessor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -228,19 +235,23 @@ public class TelaProfessor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaProfessor().setVisible(true);
+                new TelaCurso().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton atualizaCurso;
     private javax.swing.JButton backTelaPrincial;
-    private javax.swing.JButton busca;
-    private javax.swing.JTextField inputCpf;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton buscaCurso;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JButton excluiCurso;
+    private javax.swing.JTextField inputCod;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }

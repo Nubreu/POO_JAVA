@@ -4,6 +4,7 @@
  */
 package Interface;
 import Classes.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
 /**
@@ -16,12 +17,17 @@ public class TelaCadastrarProfessor extends javax.swing.JFrame {
     public String nome;
     public String matricula;
     public String contato;
+    Colecao professor = Colecao.getInstancia();
     /**
      * Creates new form TelaAluno
      */
     public TelaCadastrarProfessor() {
         initComponents();
-    }
+        
+        Colecao cursos = Colecao.getInstancia();
+        preencherComboProfessor(cursos.getCursos());
+        
+}
     
     
 
@@ -45,10 +51,12 @@ public class TelaCadastrarProfessor extends javax.swing.JFrame {
         contatoProfessor = new javax.swing.JTextField();
         cadastrarButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        cursoProfessor = new javax.swing.JTextField();
+        dropCursos = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar Aluno");
+
+        jPanel1.setBackground(new java.awt.Color(50, 50, 50));
 
         backTelaGestor.setText("Voltar");
         backTelaGestor.addActionListener(new java.awt.event.ActionListener() {
@@ -58,20 +66,29 @@ public class TelaCadastrarProfessor extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Digite os dados do Professor");
         jLabel1.setToolTipText("");
 
-        jLabel2.setText("Digite seu nome");
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Nome");
 
+        nomeProfessor.setBackground(new java.awt.Color(100, 100, 100));
         nomeProfessor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeProfessorActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Digite seu CPF");
+        cpfProfessor.setBackground(new java.awt.Color(100, 100, 100));
 
-        jLabel4.setText("Digite seu contato");
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("CPF");
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Contato");
+
+        contatoProfessor.setBackground(new java.awt.Color(100, 100, 100));
 
         cadastrarButton.setText("Cadastrar");
         cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -80,13 +97,11 @@ public class TelaCadastrarProfessor extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Curso");
 
-        cursoProfessor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cursoProfessorActionPerformed(evt);
-            }
-        });
+        dropCursos.setBackground(new java.awt.Color(100, 100, 100));
+        dropCursos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,32 +110,28 @@ public class TelaCadastrarProfessor extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 133, Short.MAX_VALUE)
-                        .addComponent(nomeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cadastrarButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(backTelaGestor))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel2))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(cpfProfessor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                                    .addComponent(dropCursos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nomeProfessor, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(contatoProfessor)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel6))
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(contatoProfessor, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cpfProfessor)
-                            .addComponent(cursoProfessor))))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(cadastrarButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backTelaGestor))
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,30 +152,26 @@ public class TelaCadastrarProfessor extends javax.swing.JFrame {
                     .addComponent(contatoProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cursoProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dropCursos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(47, 47, 47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backTelaGestor)
                     .addComponent(cadastrarButton))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -183,9 +190,8 @@ public class TelaCadastrarProfessor extends javax.swing.JFrame {
 
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         // TODO add your handling code here:
-       
         if(cadastrarButton.isEnabled()){
-            Colecao professor = Colecao.getInstancia();
+            
             Professor e = getInfoProfessor();
             if (e.nome.equals("")||e.contato.equals("")||e.cpf.equals("")){
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos");
@@ -199,10 +205,6 @@ public class TelaCadastrarProfessor extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_cadastrarButtonActionPerformed
-
-    private void cursoProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cursoProfessorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cursoProfessorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,12 +258,29 @@ public class TelaCadastrarProfessor extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void preencherComboProfessor(ArrayList<Curso> cursos) {
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+
+        for (Curso curso : cursos) {
+            model.addElement(curso.getNome()); // adiciona o nome do curso ao modelo do JComboBox
+        }
+
+        dropCursos.setModel(model); // define o modelo do JComboBox
+    }
 
     public Professor getInfoProfessor(){
         Professor aux = new Professor();
         aux.nome = nomeProfessor.getText();
         aux.contato = contatoProfessor.getText();
         aux.cpf = cpfProfessor.getText();
+        
+        Colecao cursos = Colecao.getInstancia();
+        Curso curso = cursos.getCurso(dropCursos.getSelectedItem().toString());
+       
+        aux.setCodCurso(curso.getCod());
+        
+        professor.defineProfessor(curso.getNome(), aux);
         //falta o curso
         return aux;
     }
@@ -279,7 +298,7 @@ public class TelaCadastrarProfessor extends javax.swing.JFrame {
     private javax.swing.JButton cadastrarButton;
     private javax.swing.JTextField contatoProfessor;
     private javax.swing.JTextField cpfProfessor;
-    private javax.swing.JTextField cursoProfessor;
+    private javax.swing.JComboBox<String> dropCursos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

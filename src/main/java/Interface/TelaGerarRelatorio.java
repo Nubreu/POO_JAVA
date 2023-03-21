@@ -39,6 +39,10 @@ public class TelaGerarRelatorio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerar Relatorio");
 
+        jPanel1.setBackground(new java.awt.Color(50, 50, 50));
+
+        backTelaGestor.setBackground(new java.awt.Color(110, 110, 110));
+        backTelaGestor.setForeground(new java.awt.Color(255, 255, 255));
         backTelaGestor.setText("Voltar");
         backTelaGestor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,6 +50,8 @@ public class TelaGerarRelatorio extends javax.swing.JFrame {
             }
         });
 
+        gerenciarAluno.setBackground(new java.awt.Color(110, 110, 110));
+        gerenciarAluno.setForeground(new java.awt.Color(255, 255, 255));
         gerenciarAluno.setText("Aluno");
         gerenciarAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,6 +59,8 @@ public class TelaGerarRelatorio extends javax.swing.JFrame {
             }
         });
 
+        gerenciarProfessor.setBackground(new java.awt.Color(110, 110, 110));
+        gerenciarProfessor.setForeground(new java.awt.Color(255, 255, 255));
         gerenciarProfessor.setText("Professor");
         gerenciarProfessor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,11 +68,21 @@ public class TelaGerarRelatorio extends javax.swing.JFrame {
             }
         });
 
+        gerenciarCurso.setBackground(new java.awt.Color(110, 110, 110));
+        gerenciarCurso.setForeground(new java.awt.Color(255, 255, 255));
         gerenciarCurso.setText("Curso");
+        gerenciarCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerenciarCursoActionPerformed(evt);
+            }
+        });
 
+        gerenciarSala.setBackground(new java.awt.Color(110, 110, 110));
+        gerenciarSala.setForeground(new java.awt.Color(255, 255, 255));
         gerenciarSala.setText("Salas");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Selecione a opção desejada:");
         jLabel1.setToolTipText("");
 
@@ -73,7 +91,7 @@ public class TelaGerarRelatorio extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(113, Short.MAX_VALUE)
+                .addContainerGap(136, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(gerenciarProfessor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(gerenciarCurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -100,7 +118,7 @@ public class TelaGerarRelatorio extends javax.swing.JFrame {
                 .addComponent(gerenciarCurso)
                 .addGap(18, 18, 18)
                 .addComponent(gerenciarSala)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(backTelaGestor)
                 .addGap(18, 18, 18))
         );
@@ -109,17 +127,11 @@ public class TelaGerarRelatorio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -142,6 +154,11 @@ public class TelaGerarRelatorio extends javax.swing.JFrame {
         // TODO add your handling code here:
         new RelatorioProfessor().setVisible(true);
     }//GEN-LAST:event_gerenciarProfessorActionPerformed
+
+    private void gerenciarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarCursoActionPerformed
+        // TODO add your handling code here:
+        new RelatorioCurso().setVisible(true);
+    }//GEN-LAST:event_gerenciarCursoActionPerformed
 
     /**
      * @param args the command line arguments

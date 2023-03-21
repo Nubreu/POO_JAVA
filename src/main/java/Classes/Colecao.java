@@ -4,8 +4,14 @@ package Classes;
 import java.util.*;
 import javax.swing.*;
 import Classes.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-public class Colecao {
+public class Colecao implements Serializable {
     private static Colecao instancia = null;
     private ArrayList<Aluno> alunos;
     private ArrayList<Professor> professores;
@@ -14,6 +20,7 @@ public class Colecao {
     
 
     private Colecao() {
+        
         alunos = new ArrayList<Aluno>();
         professores = new ArrayList<Professor>();
         cursos = new ArrayList<Curso>();
@@ -34,8 +41,35 @@ public class Colecao {
         professores.add(professor);
     }
     
+    public void removeProfessor(Professor professor){
+        for(Curso curso : cursos){
+            if(curso.getNomeProfessor().equals(professor.getNome())){
+                Professor e = new Professor("Sem Professor", "", "");
+                curso.setProfessor(e);
+            }
+        }     
+    }
+    
     public void addCurso(Curso curso){
         cursos.add(curso);
+    }
+    
+    public void adicionaAluno(String nomeCurso){
+        for(Curso curso : cursos){
+            if(curso.getNome().equals(nomeCurso)){
+               curso.setNumeroAlunos();
+               return;
+            }
+        }
+    }
+    
+    public void retiraAluno(String nomeCurso){
+        for(Curso curso : cursos){
+            if(curso.getNome().equals(nomeCurso)){
+               curso.tiraAlunos();
+               return;
+            }
+        }
     }
     
     public ArrayList<Aluno> getAlunos() {
@@ -50,6 +84,75 @@ public class Colecao {
         return cursos;
     }
     
+    public void defineProfessor(String nome, Professor e){
+        for(Curso curso : cursos){
+            if(curso.getNome().equals(nome)){
+               curso.setProfessor(e);
+            }
+        }
+    }
+    
+    public Aluno retornaAluno(String cpf){
+        for (Aluno aluno : alunos) {
+            if (aluno.getCpf().equals(cpf)) {
+                return aluno;
+            }
+        }
+        return null;
+    }
+    
+    public Curso retornaCurso(int cod){
+        for(Curso curso : cursos){
+            if(curso.getCod() == cod){
+               return curso;
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Curso de Código: " + cod + " não encontrado", "Não Encontrado", JOptionPane.ERROR_MESSAGE);
+        return null;
+    }
+    
+    public void consultaProfessor(String cpf){
+        for(Professor professor : professores){
+            if(professor.getCpf().equals(cpf)){
+                JOptionPane.showMessageDialog(null, "Nome: " + professor.getNome() + "\nCPF: " + professor.getCpf() + "\nContato: " + professor.getContato() + "\nCurso Ministrado: " + retornaCurso(professor.getCodCurso()).getNome(), "Dados do Professor", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }
+    
+    public void consultaAluno(String cpf){
+
+        for(Aluno aluno : alunos){
+            if(aluno.getCpf().equals(cpf)){
+                
+                StringBuilder sb = new StringBuilder();
+
+                for(Curso c : aluno.getCursos()){
+                sb.append(c.getNome());
+                sb.append(", ");
+                }
+                if(sb.length() > 0){
+                    sb.setLength(sb.length() - 2);
+                }
+
+                String result = sb.toString();
+
+                
+                JOptionPane.showMessageDialog(null, "Nome: " + aluno.getNome() + "\nCPF: " + aluno.getCpf() + "\nContato: " + aluno.getContato() + "\nCurso: " + result, "Dados do Aluno", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }
+    
+    
+    public Professor retornaProfessor(String cpf){
+        for(Professor professor : professores){
+            if(professor.getCpf().equals(cpf)){
+               return professor;
+            }
+        }
+        //JOptionPane.showMessageDialog(null, "Curso de Código: " + cod + " não encontrado", "Não Encontrado", JOptionPane.ERROR_MESSAGE);
+        return null;
+    }
+    
     public void excluirAluno(String cpf){
       for (Aluno aluno : alunos) {
         if (aluno.getCpf().equals(cpf)) {
@@ -57,18 +160,82 @@ public class Colecao {
             alunos.remove(aluno);
         }
       }
+      
+      JOptionPane.showMessageDialog(null, "Aluno de CPF: "+ cpf + " não encontrado", "Não Encontrado", JOptionPane.ERROR_MESSAGE);
     }
-
-    public void buscaAluno(String cpf){
-        for (Aluno aluno : alunos) {
-            if (aluno.getCpf().equals(cpf)) {
-                JOptionPane.showMessageDialog(null, "Nome: " + aluno.getNome() + "\nCPF: " + aluno.getCpf() + "\nContato: " + aluno.getContato());             
-                return; // encerra a busca após encontrar o aluno
+    
+    public void excluirProfessor(String cpf){
+        for (Professor professor : professores) {
+        if (professor.getCpf().equals(cpf)) {
+            JOptionPane.showMessageDialog(null, "O Professor " + professor.getNome() + " com CPF " + professor.getCpf() + "Foi ecluido da nossa lista");
+            professores.remove(professor);
+            return;
+        }
+      }
+     JOptionPane.showMessageDialog(null, "Professor de CPF: " + cpf + " não encontrado", "Não Encontrado", JOptionPane.ERROR_MESSAGE);        
+    }
+    
+    public void excluirCurso(int codigo){
+        for(Curso curso : cursos){
+            if(curso.getCod() == codigo){
+               JOptionPane.showMessageDialog(null, "O curso " + curso.getNome() + " com Código " + curso.getCod() + "Foi ecluido da nossa lista");
+                cursos.remove(curso);
+                return;
             }
         }
-        JOptionPane.showMessageDialog(null, "Aluno não encontrado");
+        JOptionPane.showMessageDialog(null, "Curso de Código: " + codigo + " não encontrado", "Não Encontrado", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    public boolean buscaCurso(int codigo){
+        
+        
+        for(Curso curso : cursos){
+            if(curso.getCod() == codigo){
+                Professor professor = new Professor();
+                professor.setNome("Sem Nome");
+                curso.setProfessor(professor);
+                
+                JOptionPane.showMessageDialog(null, "Nome do curso: " + curso.getNome() + "\nCódigo: " + curso.getCod() + "\nProfessor: " + curso.getNomeProfessor());               
+                return true;
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Curso de Código: " + codigo + " não encontrado", "Não Encontrado", JOptionPane.ERROR_MESSAGE);
+        return false;
     }
 
+    public boolean buscaAluno(String cpf){
+        for (Aluno aluno : alunos) {
+            if (aluno.getCpf().equals(cpf)) {
+                JOptionPane.showMessageDialog(null, "Nome: " + aluno.getNome() + "\nCPF: " + aluno.getCpf() + "\nContato: " + aluno.getContato());   
+                
+                return true; // encerra a busca após encontrar o aluno
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Aluno de CPF: "+ cpf + " não encontrado", "Não Encontrado", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }   
+    
+    public boolean buscaProfessor(String cpf){
+        for (Professor professor : professores) {
+            if (professor.getCpf().equals(cpf)) {
+                JOptionPane.showMessageDialog(null, "Nome: " + professor.getNome() + "\nCPF: " + professor.getCpf() + "\nContato: " + professor.getContato());               
+                return true; // encerra a busca após encontrar o aluno
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Professor de CPF: " + cpf + " não encontrado", "Não Encontrado", JOptionPane.ERROR_MESSAGE);        
+        return false;
+    }
+
+    public Curso getCurso(String nome){
+        for(Curso curso : cursos){
+            if(curso.getNome().equals(nome)){
+                return curso;
+            }
+        }
+       
+        return null;
+    }
+    
    public void exibeNaTela(){
     StringBuilder mensagem = new StringBuilder();
     mensagem.append("O tamanho do vetor é: ").append(alunos.size()).append("\n\n");
@@ -82,5 +249,43 @@ public class Colecao {
     JOptionPane.showMessageDialog(null, mensagem.toString());
     }
    
+   public void salvarDados(){
+        try {
+            FileOutputStream fileOut = new FileOutputStream("dados.bin");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(alunos);
+            out.writeObject(professores);
+            out.writeObject(cursos);
+            out.close();
+            fileOut.close();
+            System.out.println("Dados salvos com sucesso!");
+        } catch(IOException i) {
+            i.printStackTrace();
+        }
 }
+
+public void carregarDados(String nomeArquivo) {
+        try {
+            FileInputStream arquivo = new FileInputStream(nomeArquivo);
+            ObjectInputStream objeto = new ObjectInputStream(arquivo);
+
+            // Lê os objetos do arquivo e adiciona nos ArrayLists correspondentes
+            alunos = (ArrayList<Aluno>) objeto.readObject();
+            professores = (ArrayList<Professor>) objeto.readObject();
+            cursos = (ArrayList<Curso>) objeto.readObject();
+
+            objeto.close();
+            arquivo.close();
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar dados do arquivo: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println("Classe não encontrada: " + e.getMessage());
+        }
+}
+   
+   
+   
+}
+
+
 

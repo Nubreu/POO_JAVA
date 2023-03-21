@@ -2,8 +2,9 @@
 package Classes;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Curso {
+public class Curso implements Serializable {
     private int cod;
     private int alunos = 0;
     private String nome;
@@ -33,6 +34,11 @@ public class Curso {
     public String getNome() {
         return nome;
     }
+    
+    public String getNomeProfessor(){
+        return professor.getNome();
+    }
+    
     public String getCpfProfessor(){
         return professor.getCpf();
     }
@@ -42,9 +48,16 @@ public class Curso {
     public ArrayList<Integer> getDias(){
         return this.dias;
     }
-    public void setNumeroAlunos(int i){
-        this.alunos += i;
-        
+    public void setNumeroAlunos(){
+        this.alunos ++;
+    }
+    
+    public void tiraAlunos(){
+        this.alunos--;
+    }
+    
+    public int getNumeroALunos(){
+        return this.alunos;
     }
     
     public void setNome(String nome) {

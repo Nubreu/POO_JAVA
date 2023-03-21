@@ -1,9 +1,10 @@
 
 package Classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Aluno extends Pessoa {
+public class Aluno extends Pessoa implements Serializable {
     private int matricula;
     private ArrayList<Curso> cursos;
     
@@ -25,7 +26,7 @@ public void setMatricula(int matricula) {
 
 public void setCurso(Curso curso) {
     cursos.add(curso);
-    curso.setNumeroAlunos(curso.getNumeroAlunos() + 1);
+    //curso.setNumeroAlunos(curso.getNumeroAlunos() + 1);
 }
 
 public int getMatricula() {
@@ -35,6 +36,15 @@ public int getMatricula() {
 public ArrayList<Curso> getCursos() {
     return cursos;
 }
+
+public Curso getCurso(){
+    for(Curso curso : cursos){
+        return curso;
+    }
+    
+    return null;
+}
+
 
 public void preencherDadosAluno(ArrayList<Aluno> alunos, ArrayList<Curso> cursos) {
     // Implementação omitida
@@ -53,7 +63,7 @@ public boolean dataCompativel(Curso curso) {
 public void adicionarCurso(Curso curso) {
     if (!verificaDuplicidade(curso) && curso.disponibilidade(cursos)) {
         setCurso(curso);
-        curso.setNumeroAlunos(curso.getNumeroAlunos() + 1);
+        //curso.setNumeroAlunos(curso.getNumeroAlunos() + 1);
     }
 }
 

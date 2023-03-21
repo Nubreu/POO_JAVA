@@ -1,10 +1,11 @@
 
 package Classes;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 
-public class Gestor extends Pessoa{
+public class Gestor extends Pessoa implements Serializable {
     Scanner scanner = new Scanner(System.in);
     private String login;
     private String senha;

@@ -39,6 +39,10 @@ public class TelaGerenciarAluno extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciar Aluno");
 
+        jPanel1.setBackground(new java.awt.Color(50, 50, 50));
+
+        backTelaGestor.setBackground(new java.awt.Color(110, 110, 110));
+        backTelaGestor.setForeground(new java.awt.Color(255, 255, 255));
         backTelaGestor.setText("Voltar");
         backTelaGestor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,6 +50,8 @@ public class TelaGerenciarAluno extends javax.swing.JFrame {
             }
         });
 
+        gerenciarAluno.setBackground(new java.awt.Color(110, 110, 110));
+        gerenciarAluno.setForeground(new java.awt.Color(255, 255, 255));
         gerenciarAluno.setText("Cadastrar Aluno");
         gerenciarAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,6 +59,8 @@ public class TelaGerenciarAluno extends javax.swing.JFrame {
             }
         });
 
+        gerenciarProfessor.setBackground(new java.awt.Color(110, 110, 110));
+        gerenciarProfessor.setForeground(new java.awt.Color(255, 255, 255));
         gerenciarProfessor.setText("Consultar Aluno");
         gerenciarProfessor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +68,8 @@ public class TelaGerenciarAluno extends javax.swing.JFrame {
             }
         });
 
+        gerenciarCurso.setBackground(new java.awt.Color(110, 110, 110));
+        gerenciarCurso.setForeground(new java.awt.Color(255, 255, 255));
         gerenciarCurso.setText("Excluir Aluno");
         gerenciarCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +77,8 @@ public class TelaGerenciarAluno extends javax.swing.JFrame {
             }
         });
 
+        gerenciarSala.setBackground(new java.awt.Color(110, 110, 110));
+        gerenciarSala.setForeground(new java.awt.Color(255, 255, 255));
         gerenciarSala.setText("Atualizar Aluno");
         gerenciarSala.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +86,9 @@ public class TelaGerenciarAluno extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setBackground(new java.awt.Color(50, 50, 50));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Selecione a opção desejada:");
         jLabel1.setToolTipText("");
 
@@ -92,7 +106,7 @@ public class TelaGerenciarAluno extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
+                        .addGap(103, 103, 103)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(gerenciarAluno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(gerenciarProfessor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -105,7 +119,7 @@ public class TelaGerenciarAluno extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addGap(35, 35, 35)
                 .addComponent(gerenciarAluno)
                 .addGap(18, 18, 18)
                 .addComponent(gerenciarProfessor)
@@ -113,7 +127,7 @@ public class TelaGerenciarAluno extends javax.swing.JFrame {
                 .addComponent(gerenciarCurso)
                 .addGap(18, 18, 18)
                 .addComponent(gerenciarSala)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(backTelaGestor)
                 .addGap(18, 18, 18))
         );
@@ -122,17 +136,11 @@ public class TelaGerenciarAluno extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
